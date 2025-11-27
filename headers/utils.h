@@ -1,4 +1,4 @@
-//WORD
+//WORM
 #pragma once
 
 #ifndef WINVER
@@ -38,4 +38,5 @@ std::wstring GetErrorMessage(DWORD error);
 std::string WideToString(const wchar_t* wide);
 std::wstring StringToWide(const std::string& str);
 void PrintHeader(const std::string& title);
+
 void PrintSubHeader(const std::string& subtitle);
