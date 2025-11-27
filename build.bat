@@ -3,7 +3,7 @@ REM Designed for Microsoft Visual C++ Compiler (cl.exe)
 
 setlocal enabledelayedexpansion
 
-echo [*] NCRT v1.0 Build System
+echo [*] kamos v1.0 Build System
 echo [*] Checking for Visual C++ compiler...
 
 REM check for environment variables
@@ -59,7 +59,7 @@ cl.exe /nologo /O2 /MT /EHsc /W4 /MP /I"headers" ^
 if %errorlevel% equ 0 (
     echo.
     echo [+] Compilation successful!
-    echo [+] Output: NCRT.exe
+    echo [+] Output: kamos.exe
     echo.
     REM 
     echo [*] Cleaning up object files...
@@ -69,4 +69,5 @@ if %errorlevel% equ 0 (
 ) else (
     echo.
     echo [!] Compilation failed!
+
     exit /b 1)
