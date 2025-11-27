@@ -1,4 +1,4 @@
-//WORD
+//WORM
 #pragma once
 
 
@@ -10,4 +10,5 @@ void EnumNetworkAdapters();
 void EnumProcesses();
 void GetSystemInformation();
 void ListDirectory(const std::string& dirPath);
+
 std::string GetIntegrityLevel(DWORD dwIntegrity);
