@@ -23,7 +23,7 @@ Modern Endpoint Detection & Response (EDR) systems are trained to catch obvious 
 ```
 Traditional Reconnaissance (Gets Caught):
 ┌─────────────────────────────────┐
-│ cmd.exe (PARENT)                │ ◄── EDR ALARM 🚨
+│ cmd.exe (PARENT)                │ ◄── EDR ALARM 
 ├─→ whoami.exe (CHILD)            │     "Process Creation Detected"
 ├─→ ipconfig.exe (CHILD)          │     "Child Process Anomaly"
 ├─→ tasklist.exe (CHILD)          │     "Command Execution Pattern"
@@ -49,7 +49,7 @@ KAMOS Approach (Stays Silent):
 
 ---
 
-## 🎯 Why KAMOS is Different
+##  Why KAMOS is Different
 
 | Aspect | Traditional Tools | KAMOS |
 |--------|-------------------|-------|
@@ -63,9 +63,9 @@ KAMOS Approach (Stays Silent):
 
 ---
 
-## ✨ Features
+## Features
 
-### 🔐 Token & Privilege Enumeration
+### Token & Privilege Enumeration
 Extract current user identity, all privileges, and group memberships directly from process token.
 
 ```bash
@@ -79,11 +79,11 @@ kamos.exe tokeninfo
     SID: S-1-5-21-3623811015-3361044348-30300510-500
 
 [*] Privileges
-    SeDebugPrivilege ........................ ENABLED ⚠️
-    SeImpersonatePrivilege ................. ENABLED ⚠️
-    SeLoadDriverPrivilege .................. ENABLED ⚠️
+    SeDebugPrivilege ........................ ENABLED 
+    SeImpersonatePrivilege ................. ENABLED 
+    SeLoadDriverPrivilege .................. ENABLED 
     SeTcbPrivilege ......................... DISABLED
-    SeBackupPrivilege ...................... ENABLED ⚠️
+    SeBackupPrivilege ...................... ENABLED 
 
 [*] Group Membership
     [+] CORPORATE\Domain Admins (ENABLED)
@@ -95,7 +95,7 @@ kamos.exe tokeninfo
 
 ---
 
-### 🌐 Network Intelligence
+### Network Intelligence
 Full network adapter enumeration including IPv4, IPv6, DNS servers, gateways, and operational status.
 
 ```bash
@@ -105,7 +105,7 @@ kamos.exe network
 **Output:**
 ```
 [Adapter 1] Intel(R) Ethernet
-    Status: UP ✅
+    Status: UP 
     MAC Address: 00-1A-2B-3C-4D-5E
     IPv4: 192.168.1.100
     IPv6: fe80::800:27ff:fe00:abcd
@@ -121,7 +121,7 @@ kamos.exe network
 
 ---
 
-### 📋 Process Enumeration
+### Process Enumeration
 Real-time process listing with parent-child relationships, integrity levels, and command line arguments.
 
 ```bash
@@ -144,7 +144,7 @@ PID      PPID     Process Name                      Integrity
 
 ---
 
-### 🖥️ System Intelligence
+### System Intelligence
 Comprehensive system profiling including OS version, CPU architecture, memory, uptime, and domain information.
 
 ```bash
@@ -177,7 +177,7 @@ kamos.exe sysinfo
 
 ---
 
-### 📁 Directory Listing
+### Directory Listing
 Enumerate directory contents with full file metadata (size, timestamps, attributes).
 
 ```bash
@@ -203,7 +203,7 @@ config.json                        4096 B          <FILE>
 
 ---
 
-### 🎯 Full System Recon
+### Full System Recon
 Execute all reconnaissance modules in optimal sequence for complete system profiling.
 
 ```bash
@@ -214,7 +214,7 @@ Runs: tokeninfo → network → proclist → sysinfo → dir (C:\)
 
 ---
 
-## 🔬 Technical Architecture
+## Technical Architecture
 
 ### Why It's Impossible to Detect
 
@@ -280,7 +280,6 @@ cd kamos
 # Build with automated script
 build.bat
 
-# Output: kamos.exe (ready for deployment)
 ```
 
 ### Compilation Requirements
@@ -289,34 +288,12 @@ build.bat
 - **Windows SDK** (included with Visual Studio)
 - **C++17 support**
 
-### Manual Compilation
-
-```bash
-cl.exe /O2 /EHsc /W4 /MP ^
-    /Fo".\obj\\" ^
-    /Fe"kamos.exe" ^
-    kamos.cpp ^
-    /link ws2_32.lib iphlpapi.lib advapi32.lib shlwapi.lib netapi32.lib shell32.lib
-```
-
-### Production Obfuscation
-
-```bash
-# Recommended: ConfuserEx obfuscation
-confuser.exe kamos.exe --output=kamos_obfuscated.exe
-
-# Deploy obfuscated version
-kamos_obfuscated.exe all
-```
-
----
-
 ## 🎮 Usage Guide
 
 ### Command Syntax
 
 ```bash
-kamos.exe <command> [arguments]
+kamos.exe <command>
 ```
 
 ### Available Commands
@@ -356,142 +333,8 @@ kamos.exe all
 
 ---
 
-## 🛡️ Operational Security
 
-### Pre-Deployment Checklist
-
-- ✅ Compile on isolated system (never on target)
-- ✅ Obfuscate binary (ConfuserEx/Enigma Protector)
-- ✅ Use temporary execution path (`%TEMP%`, `C:\ProgramData`)
-- ✅ Execute during normal business hours (blend with activity)
-- ✅ Redirect output to encrypted channel (not stdout)
-- ✅ Delete binary immediately after execution
-- ✅ Clear application event logs if necessary
-- ✅ Consider code signing with valid certificate
-
-### Evasion Techniques
-
-#### Add Random Delays (Defeat Timing Analysis)
-```cpp
-Sleep(rand() % 2000);  // 0-2 second random delays
-```
-
-#### Randomize Execution Order (Break Pattern Detection)
-```cpp
-// Don't execute in predictable order
-// Shuffle: tokeninfo, network, proclist, sysinfo, dir
-```
-
-#### Encrypt Output (Avoid Keyword Matching)
-```cpp
-// Encrypt sensitive output with AES-256
-// Send over HTTPS to C2
-```
-
-#### Use Named Pipes (Hide Output)
-```cpp
-// Pipe results to hidden named pipe
-// \\\.\pipe\kamos_output
-```
-
----
-
-## 🔥 Real-World Scenarios
-
-### Scenario 1: Post-Exploitation Reconnaissance
-```bash
-# After obtaining shell access, run full recon without triggering EDR
-C:\Users\Admin\AppData\Local\Temp> kamos.exe all > recon_data.txt
-
-# Output saved to file, transferred to attacker infrastructure
-```
-
-### Scenario 2: Privilege Assessment
-```bash
-# Check if current user has dangerous privileges
-C:\> kamos.exe tokeninfo | findstr /i "SeDebug SeImpersonate SeLoad"
-
-# If SeDebugPrivilege is ENABLED, next steps are possible
-```
-
-### Scenario 3: Network Mapping
-```bash
-# Gather network info for lateral movement
-C:\> kamos.exe network
-
-# Identify VPN adapters, internal DNS, network topology
-```
-
-### Scenario 4: Process Hunting
-```bash
-# Find security tool processes
-C:\> kamos.exe proclist | findstr /i "defender protector sentinel"
-
-# Identify which security software is running
-```
-
----
-
-## 📊 EDR Evasion Comparison
-
-### Detection Rate Across EDR Solutions
-
-```
-Tool        | Crowdstrike | Microsoft Defender | SentinelOne | Palo Alto
-──────────────────────────────────────────────────────────────────────
-cmd.exe     | 99% detect  | 98% detect         | 99% detect  | 99% detect
-powershell  | 95% detect  | 98% detect         | 97% detect  | 98% detect
-whoami.exe  | 85% detect  | 92% detect         | 88% detect  | 90% detect
-KAMOS       | 2% detect*  | 5% detect*         | 3% detect*  | 4% detect*
-
-* Based on heuristic analysis; actual detection depends on behavioral analytics
-```
-
----
-
-## 🚀 Performance Metrics
-
-### Execution Speed
-
-```
-Command         | Execution Time | Memory Usage | Processes Spawned
-─────────────────────────────────────────────────────────────────
-tokeninfo       | 12ms           | 2.1 MB       | 0 ✅
-network         | 24ms           | 2.3 MB       | 0 ✅
-proclist        | 38ms           | 3.2 MB       | 0 ✅
-sysinfo         | 6ms            | 1.9 MB       | 0 ✅
-dir             | 10ms           | 2.0 MB       | 0 ✅
-all             | 105ms          | 3.5 MB       | 0 ✅
-
-Traditional recon (5 separate commands): 350-500ms + EDR alerts
-KAMOS single execution: 105ms + zero alerts
-```
-
-### Binary Size
-
-```
-Traditional Tools Combined:
-  cmd.exe (300 KB)
-  + whoami.exe (20 KB)
-  + ipconfig.exe (28 KB)
-  + tasklist.exe (18 KB)
-  + systeminfo.exe (22 KB)
-  ─────────────────────
-  Total: 388 KB (plus signatures)
-
-KAMOS:
-  kamos.exe (215 KB)
-  ─────────────────────
-  Total: 215 KB (single binary)
-  
-Reduction: 45% smaller footprint
-```
-
----
-
-## 🔬 Advanced Enhancements
-
-### KAMOS v2.0 Roadmap
+### KAMOS v1.1
 
 - [ ] Registry key enumeration (HKLM/HKCU)
 - [ ] Scheduled tasks listing (TaskScheduler COM)
@@ -508,45 +351,11 @@ Reduction: 45% smaller footprint
 - [ ] Output encryption
 - [ ] C2 integration
 
----
-
-## 🧠 What You'll Learn
-
-This project teaches:
-
-1. **Windows API Mastery** - Direct kernel interaction
-2. **Stealth Techniques** - Real EDR evasion tradecraft
-3. **Reverse Engineering** - How system tools actually work
-4. **C++ Best Practices** - Modern Windows development
-5. **Security Research** - Offensive and defensive perspectives
-
----
 
 ## ⚠️ Legal & Disclaimer
 
 **AUTHORIZED USE ONLY**
-
-```
-✅ LEGAL:
-   • Authorized penetration testing (with written approval)
-   • Red team exercises (with client authorization)
-   • Security research and education
-   • Authorized system assessment
-
-❌ ILLEGAL:
-   • Unauthorized system access
-   • Corporate espionage
-   • Malicious reconnaissance
-   • Any use without explicit written permission
-```
-
-**By using KAMOS you acknowledge:**
-- ✓ You have explicit written authorization from system owner
-- ✓ You understand the legal implications
-- ✓ You accept full responsibility for your actions
-- ✓ Developers assume zero liability for misuse
-
----
+I dont dictate, just informing
 
 ## 📚 References
 
@@ -555,35 +364,9 @@ This project teaches:
 - [Process Creation & EDR](https://docs.microsoft.com/en-us/windows/win32/procthread/process-creation)
 - [Token Management](https://docs.microsoft.com/en-us/windows/win32/secauthz/tokens)
 
-### Security Research
-- [MITRE ATT&CK](https://attack.mitre.org/) - Reconnaissance Techniques
-- [Windows Internals](https://docs.microsoft.com/en-us/sysinternals/) - Pavel Yosifovich
-- [EDR Bypass Techniques](https://redteaming.co.uk/)
-
-### Related Tools
-- [Process Hacker](https://processhacker.sourceforge.io/)
-- [Sysinternals Suite](https://docs.microsoft.com/en-us/sysinternals/)
-- [Metasploit Framework](https://www.metasploit.com/)
-
----
-
-## 🤝 Contributing
-
-Contributions welcome! Areas we need help:
-
-- [ ] Additional reconnaissance modules
-- [ ] Output format options (JSON, CSV, XML)
-- [ ] Advanced obfuscation support
-- [ ] C2 integration examples
-- [ ] Documentation improvements
-- [ ] Platform support (x86)
-- [ ] Performance optimization
-
----
-
 ## 📄 License
 
-MIT License - See [LICENSE](LICENSE) file
+Do You Have Any? Cuz we dont have :)
 
 ```
 Copyright (c) 2024 KAMOS Contributors
@@ -592,17 +375,5 @@ Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files...
 ```
 
----
-
-<div align="center">
-
-### 💀 KAMOS: Stay Silent. Gather Intelligence. Leave No Trace. 💀
-
-**Made with ❤️ for the red team community**
-
-[⬆ Back to Top](#-kamos---silent-system-reconnaissance-engine)
-
-![GitHub Stars](https://img.shields.io/github/stars/YourUsername/kamos?style=social)
-![GitHub Forks](https://img.shields.io/github/forks/YourUsername/kamos?style=social)
 
 </div>
