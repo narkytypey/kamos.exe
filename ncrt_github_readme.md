@@ -278,6 +278,8 @@ cd kamos
 # Build with automated script
 build.bat
 
+# or you can built with cmake and their alternatives it is on you
+cmake --build . --config Release
 ```
 
 ### Compilation Requirements
@@ -286,7 +288,7 @@ build.bat
 - **Windows SDK** (included with Visual Studio)
 - **C++17 support**
 
-## 🎮 Usage Guide
+##  Usage Guide
 
 ### Command Syntax
 
@@ -350,12 +352,12 @@ kamos.exe all
 - [ ] C2 integration
 
 
-## ⚠️ Legal & Disclaimer
+## Legal & Disclaimer
 
 **AUTHORIZED USE ONLY**
 I dont dictate, just informing
 
-## 📚 References
+##  References
 
 ### Documentation
 - [Microsoft Windows API](https://docs.microsoft.com/en-us/windows/win32/)
