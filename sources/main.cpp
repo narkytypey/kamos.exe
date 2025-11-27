@@ -3,19 +3,19 @@
 
 void PrintUsage() {
     std::cout << "\n" << std::string(70, '=') << "\n";
-    std::cout << "  NCRT v1.0 - No-Child-Process Recon Tool\n";
+    std::cout << "  kamos v1.0 - No-Child-Process Recon Tool\n";
     std::cout << "  Authorized Penetration Testing Only\n";
     std::cout << std::string(70, '=') << "\n";
     std::cout << "\nUsage:\n";
-    std::cout << "  NCRT.exe tokeninfo   - Token and privilege information\n";
-    std::cout << "  NCRT.exe network     - Network adapter configuration\n";
-    std::cout << "  NCRT.exe proclist    - Process listing with integrity levels\n";
-    std::cout << "  NCRT.exe sysinfo     - System information\n";
-    std::cout << "  NCRT.exe dir <path>  - Directory listing\n";
-    std::cout << "  NCRT.exe all         - Execute all reconnaissance modules\n";
+    std::cout << "  kamos.exe tokeninfo   - Token and privilege information\n";
+    std::cout << "  kamos.exe network     - Network adapter configuration\n";
+    std::cout << "  kamos.exe proclist    - Process listing with integrity levels\n";
+    std::cout << "  kamos.exe sysinfo     - System information\n";
+    std::cout << "  kamos.exe dir <path>  - Directory listing\n";
+    std::cout << "  kamos.exe all         - Execute all reconnaissance modules\n";
     std::cout << "\nExample:\n";
-    std::cout << "  NCRT.exe all\n";
-    std::cout << "  NCRT.exe dir C:\\\\Users\\\n";
+    std::cout << "  kamos.exe all\n";
+    std::cout << "  kamos.exe dir C:\\\\Users\\\n";
     std::cout << std::string(70, '=') << "\n\n";
 }
 
@@ -69,4 +69,5 @@ int main(int argc, char* argv[]) {
 
     std::cout << "\n[+] Reconnaissance complete.\n";
     return 0;
+
 }
