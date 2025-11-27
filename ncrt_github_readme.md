@@ -1,4 +1,4 @@
-# ⚔️ KAMOS - Silent System Reconnaissance Engine
+#  KAMOS - Stealth System Recon Engine (for windows, for now <3)
 
 <div align="center">
 
@@ -10,13 +10,11 @@
 
 **A weaponized reconnaissance tool that operates silently through native Windows APIs. Designed to evade EDR/AV detection while gathering complete system intelligence.**
 
-[📖 Documentation](#-technical-deep-dive) • [🚀 Quick Start](#-quick-start) • [🎯 Features](#-features) • [⚙️ Usage](#-usage) • [🔬 Advanced](#-advanced-enhancements)
+[ Quick Start](#-quick-start) • [ Features](#-features) • [ Usage](#-usage) 
 
 </div>
 
 ---
-
-## 💀 The Problem We Solve
 
 Modern Endpoint Detection & Response (EDR) systems are trained to catch obvious reconnaissance. They watch for cmd.exe spawning child processes and flag the classic recon sequence immediately.
 
