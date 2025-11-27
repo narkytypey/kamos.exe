@@ -10,7 +10,7 @@
 
 **A weaponized reconnaissance tool that operates silently through native Windows APIs. Designed to evade EDR/AV detection while gathering complete system intelligence.**
 
-[ Quick Start](#-quick-start) • [ Features](#-features) • [ Usage](#-usage) 
+[ Documentation ](#-documentation) 
 
 </div>
 
@@ -334,7 +334,7 @@ kamos.exe all
 ---
 
 
-### KAMOS v1.1
+### KAMOS v1.0
 
 - [ ] Registry key enumeration (HKLM/HKCU)
 - [ ] Scheduled tasks listing (TaskScheduler COM)
