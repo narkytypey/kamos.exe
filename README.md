@@ -57,7 +57,7 @@ KAMOS Approach (Stays Silent):
 | **Process Footprint** | ❌ multiple PIDs | ✅ single PID |
 | **API Layer** | ❌ shell wrapper | ✅ direct native APIs |
 | **Evasion Rating** | ❌ Low | ✅ **MILITARY GRADE** |
-| **Binary Size** | ❌ Multiple files | ✅ Single 200KB executable |
+| **Binary Size** | ❌ Multiple files | ✅ Single ~300KB executable |
 
 ---
 
