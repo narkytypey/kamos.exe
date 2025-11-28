@@ -355,18 +355,18 @@ kamos.exe all
 ## Legal & Disclaimer
 
 **AUTHORIZED USE ONLY**
-I dont dictate, just informing
+        -I don't dictate, just informing
 
 ##  References
 
 ### Documentation
 - [Microsoft Windows API](https://docs.microsoft.com/en-us/windows/win32/)
-- [Process Creation & EDR](https://docs.microsoft.com/en-us/windows/win32/procthread/process-creation)
-- [Token Management](https://docs.microsoft.com/en-us/windows/win32/secauthz/tokens)
+- [Process Creation & EDR](https://docs.microsoft.com/en-us/windows/win32/apiindex/api-index-portal)
+- [Token Management]([https://docs.microsoft.com/en-us/windows/win32/secauthz/tokens](https://learn.microsoft.com/en-us/security/zero-trust/develop/token-management))
 
 ## 📄 License
 
-Do You Have Any? Cuz we dont have :)
+Do You Have Any? Cuz' we dont have any :)
 
 ```
 Copyright (c) 2024 KAMOS Contributors
