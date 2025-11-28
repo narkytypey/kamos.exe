@@ -362,7 +362,7 @@ kamos.exe all
 ### Documentation
 - [Microsoft Windows API](https://docs.microsoft.com/en-us/windows/win32/)
 - [Process Creation & EDR](https://docs.microsoft.com/en-us/windows/win32/apiindex/api-index-portal)
-- [Token Management]([https://docs.microsoft.com/en-us/windows/win32/secauthz/tokens](https://learn.microsoft.com/en-us/security/zero-trust/develop/token-management))
+- [Token Management](https://learn.microsoft.com/en-us/security/zero-trust/develop/token-management)
 
 ## 📄 License
 
